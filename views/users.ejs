@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+     <div class="container">
+        <h1>users: </h1>
+        <table>
+            <% for(var i=0; i < arrayLength; i++) { %>
+            <tr>
+             <td><%= firstname[i] %></td>
+             <td><%= lastname[i] %></td>
+             <td><%= email[i] %></td>
+             
+           </tr>
+        <%}%>
+        </table>
+    </div>
+</body>
+</html>
+
