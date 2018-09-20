@@ -19,6 +19,17 @@ app.get('/', function (req, res) {
     res.render('home')
 });
 
+
+app.get('/usersjson', function (req, res) {
+    read('users.json', function (err, data) {
+        if (err) {
+            return console.log(err)
+        }
+
+        res.json(data)
+    })
+})
+
 app.get('/users', function (req, res) {
     read('users.json', function (err, data) {
         if (err) {
@@ -43,7 +54,6 @@ app.post('/users', function (req, res) {
         const userInput = req.body.search;
         const firstNames = data.map(person => person.firstname);
         const lastNames = data.map(person => person.lastname);
-        const email = data.map(person => person.email);
 
         if (firstNames.includes(userInput) || lastNames.includes(userInput)) {
             const output = data.filter(person => person.firstname === userInput || person.lastname === userInput || `${person.firstname} ${person.lastname}` === userInput)
